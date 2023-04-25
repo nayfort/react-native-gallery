@@ -2,10 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import galleryScreen from './app/components/GalleryScreen';
-import detailImage from './app/components/DetailImageScreen';
-import {store} from './app/store/store';
-
+import galleryScreen from '/expo/gallery/app/components/galleryScreen';
+import detailImageScreen from '/expo/gallery/app/components/detailImageScreen';
+import {store} from "./app/store/store";
 function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -15,11 +14,16 @@ function HomeScreen() {
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(
+    {
+        Gallery: {screen: galleryScreen},
+        Image: {screen: detailImageScreen},
+    }
+);
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer store={store}>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
@@ -35,3 +39,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

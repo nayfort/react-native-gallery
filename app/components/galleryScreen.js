@@ -7,7 +7,7 @@ import { fetchImages } from '../store/actions/fetchImagesAction';
 
 import ListItem from './ListItem'
 
-class GalleryScreen extends Component {
+class galleryScreen extends Component {
 
     static navigationOptions = {
         title: 'Unsplash Gallery'
@@ -66,4 +66,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchImages })(GalleryScreen)
+export default connect(mapStateToProps, { fetchImages })(galleryScreen)

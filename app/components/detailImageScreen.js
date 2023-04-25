@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, Image} from 'react-native';
 
 
-export default class DetailImage extends Component {
+export default class detailImageScreen extends Component {
 
     static navigationOptions = {
         title: 'Full Image'

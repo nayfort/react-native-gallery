@@ -3,8 +3,7 @@ import {Image, StyleSheet, View} from 'react-native';
 
 
 export default function DetailImageScreen(props) {
-console.log('isDetailimagescreen: ',props)
-    const {regularUrl} = props.route.params.regularUrl;
+    const {regularUrl} = props.route.params;
 
     return (
         <View style={styles.container}>
@@ -25,6 +24,7 @@ const styles = StyleSheet.create({
     },
     img: {
         width: '100%',
-        height: '100%',
+        height: undefined,
+        aspectRatio: 1,
     }
 });

@@ -1,22 +1,18 @@
-import React, {Component} from 'react';
-import { StyleSheet, View, Image} from 'react-native';
+import React from 'react';
+import {Image, StyleSheet, View} from 'react-native';
 
 
-export default class detailImageScreen extends Component {
+export default function detailImageScreen(props) {
+    const {regularUrl} = props.navigation.state.params;
 
-    static navigationOptions = {
-        title: 'Full Image'
-    }
-
-    render() {
-        const { regularUrl } = this.props.navigation.state.params;
-
-        return (
-            <View style={styles.container}>
-                <Image source={{uri: regularUrl}} style={styles.img}/>
-            </View>
-        );
-    }
+    return (
+        <View style={styles.container}>
+            <Image source={{uri: regularUrl}} style={styles.img}/>
+        </View>
+    );
+}
+detailImageScreen.navigationOptions = {
+    title: 'Full Image'
 }
 
 const styles = StyleSheet.create({

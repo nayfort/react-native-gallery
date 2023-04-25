@@ -42,7 +42,7 @@ const AppNavigator = createStackNavigator({
 });
 
 const AppContainer = createAppContainer(AppNavigator);
-
+//1
 
 
 //import { StatusBar } from 'expo-status-bar';

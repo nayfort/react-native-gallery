@@ -1,23 +1,20 @@
-import React, {Component} from 'react';
-import { TouchableOpacity, Text, View, Image, StyleSheet} from 'react-native';
+import React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-class ListItem extends Component {
+export function listItem(props) {
 
-    render() {
+    const {regularUrl, thumbnailUrl, authorName, navigate} = props;
 
-        const {regularUrl, thumbnailUrl, authorName, navigate} = this.props;
-
-        return (
-            <TouchableOpacity onPress={() => navigate(regularUrl)}>
-                <View style={styles.imgContainer}>
-                    <Image source={{uri: thumbnailUrl}} style={styles.img}/>
-                    <View style={styles.descriptionContainer}>
-                        <Text style={styles.descriptionItem}>Author: {authorName}</Text>
-                    </View>
+    return (
+        <TouchableOpacity onPress={() => navigate(regularUrl)}>
+            <View style={styles.imgContainer}>
+                <Image source={{uri: thumbnailUrl}} style={styles.img}/>
+                <View style={styles.descriptionContainer}>
+                    <Text style={styles.descriptionItem}>Author: {authorName}</Text>
                 </View>
-            </TouchableOpacity>
-        );
-    }
+            </View>
+        </TouchableOpacity>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -44,4 +41,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ListItem;
+export default listItem;

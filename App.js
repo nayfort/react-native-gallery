@@ -6,7 +6,6 @@ import galleryScreen from './app/components/galleryScreen';
 import detailImageScreen from "./app/components/detailImageScreen";
 import { Provider } from 'react-redux';
 import {store} from "./app/store/store";
-
 function HomeScreen() {
   return (
     <View style={styles.container}>

@@ -5,9 +5,9 @@ import { connect } from 'react-redux';
 
 import { fetchImages } from '../store/actions/fetchImagesAction';
 
-import ListItem from './ListItem'
+import listItem from "./listItem";
 
-class galleryScreen extends Component {
+export class galleryScreen extends Component {
 
     static navigationOptions = {
         title: 'Unsplash Gallery'
@@ -20,7 +20,7 @@ class galleryScreen extends Component {
     _keyExtractor = (item) => item.id;
 
     _renderItem = ({item}) => (
-        < ListItem
+        < listItem
               id = {item.id}
               thumbnailUrl = {item.urls.small}
               regularUrl = {item.urls.regular}

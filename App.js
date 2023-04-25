@@ -2,9 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import galleryScreen from '/expo/gallery/app/components/galleryScreen';
-import detailImageScreen from '/expo/gallery/app/components/detailImageScreen';
-import {store} from "./app/store/store";
+import galleryScreen from './app/components/galleryScreen';
+import detailImageScreen from '.app/components/detailImageScreen';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+
 function HomeScreen() {
   return (
     <View style={styles.container}>
@@ -14,20 +16,19 @@ function HomeScreen() {
   );
 }
 
-const Stack = createStackNavigator(
-    {
-        Gallery: {screen: galleryScreen},
-        Image: {screen: detailImageScreen},
-    }
-);
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer store={store}>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Gallery" component={galleryScreen} />
+          <Stack.Screen name="Image" component={detailImageScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
@@ -39,4 +40,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-

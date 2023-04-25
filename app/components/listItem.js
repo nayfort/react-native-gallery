@@ -1,7 +1,7 @@
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-export function listItem(props) {
+export function ListItem(props) {
 
     const {regularUrl, thumbnailUrl, authorName, navigate} = props;
 
@@ -41,4 +41,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default listItem;
+export default ListItem;

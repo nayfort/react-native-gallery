@@ -2,8 +2,9 @@ import React from 'react';
 import {Image, StyleSheet, View} from 'react-native';
 
 
-export default function detailImageScreen(props) {
-    const {regularUrl} = props.navigation.state.params;
+export default function DetailImageScreen(props) {
+console.log('isDetailimagescreen: ',props)
+    const {regularUrl} = props.route.params.regularUrl;
 
     return (
         <View style={styles.container}>
@@ -11,7 +12,7 @@ export default function detailImageScreen(props) {
         </View>
     );
 }
-detailImageScreen.navigationOptions = {
+DetailImageScreen.navigationOptions = {
     title: 'Full Image'
 }
 
